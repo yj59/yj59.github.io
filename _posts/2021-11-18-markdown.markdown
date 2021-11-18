@@ -4,6 +4,8 @@ title:  "markdown test"
 date:   2021-11-18
 categories: markdown
 use_math: true
+
+permalink: /markdown/test/
 ---
 
 # 한영 출력 확인
