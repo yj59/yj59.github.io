@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+title: study log
+author: GitHub User
+email: yj.osoq@gmail.com
+=======
 title: Your awesome title
 author: GitHub User
 email: your-email@domain.com
+>>>>>>> 04e3bba19eaf6b846f32d403d9a8186f4d5fc891
 description: > # this means to ignore newlines until "show_exerpts:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -12,14 +18,24 @@ show_excerpts: true # set to true to show excerpts on the homepage
 sass:
   sass_dir: _sass
 plainwhite:
+<<<<<<< HEAD
+  name: Yejin An
+  tagline: Hi
+=======
   name: Adam Denisov
   tagline: Developer. Designer
+>>>>>>> 04e3bba19eaf6b846f32d403d9a8186f4d5fc891
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
   search: true # set to true to enable searchbar
   dark_mode: true # set to true to add dark mode toggle
+<<<<<<< HEAD
+  portfolio_image: "assets/proflie.png" # the path from the base directory of the site to the image to display (no / at the start)
+  html_lang: "https://yj59.github.io/" # set the lang attribute of the <html> tag for the pages. See here for a list of codes: https://www.w3schools.com/tags/ref_country_codes.asp
+=======
   portfolio_image: "assets/portfolio.png" # the path from the base directory of the site to the image to display (no / at the start)
   html_lang: "en" # set the lang attribute of the <html> tag for the pages. See here for a list of codes: https://www.w3schools.com/tags/ref_country_codes.asp
+>>>>>>> 04e3bba19eaf6b846f32d403d9a8186f4d5fc891
   condensed_mobile:
     #- home
     - page
@@ -27,7 +43,11 @@ plainwhite:
   # generate social links in footer
   social_links:
     twitter: samarsault
+<<<<<<< HEAD
+    github:  yj59
+=======
     github:  samarsault
+>>>>>>> 04e3bba19eaf6b846f32d403d9a8186f4d5fc891
     linkedIn: in/samarsault
     #dribbble: jekyll
     #flickr:   jekyll
