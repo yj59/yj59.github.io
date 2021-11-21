@@ -26,7 +26,7 @@ permalink: /deep_learning/batch_norm/
 
 <br/>
 
-![2](https://user-images.githubusercontent.com/93882395/142740333-0bfb9fc5-350d-403c-89d7-f61149ddab64.png){: width="550"}
+![2](https://user-images.githubusercontent.com/93882395/142751729-3d45423a-7cd6-4d27-8d6e-8924dacb8c78.png){: width="550"}
 
  &nbsp; 배치 정규화 사용 결과 더 큰 learning rate 사용이 가능하며, 가중치 초기화에 신경을 덜 쓰게 된다(weight regularization term 등 제외). 또, batch norm이 정규화 기능을 수행하면서 경우에 따라 dropout을 사용하지 않아도 유사한 성능을 구현한다.
 
@@ -100,15 +100,23 @@ sub-network의 input 분포도가 일정하게 유지되면 파라미터 학습 
 
 ## 2. Towards Reducing Internal Covariate Shift
 
-whitening
+<br/>
 
- 입력 데이터의 전처리를 하기 위한 다양한 기술의 일종으로, 평균이 0일 뿐만 아니라 공분산이 단위행렬인 정규분포 형태의 데이터로 변환하는 기법 
+![whitening](https://user-images.githubusercontent.com/93882395/142751524-102bfa0a-1f60-4070-b69c-b3561c15c773.png){: width="550"}
 
-=> 서로 다른 피처끼리 연관성이 없는 형태로 데이터 전처리 : 각각의 피처에 대해서 decorrelated될 수 있다.
+![7](https://user-images.githubusercontent.com/93882395/142751077-bf58c032-48b8-4fb3-b3b0-71bf9fc41bf8.png){: width="550"}
 
-입력 데이터의 각각의 특징들이 decorrelated되고 평균값은 0이며 1만큼의 varience를 가지도록 함.
+ICS : 학습 도중 파라미터의 변화로 다음 레이어의 input값 분포도가 바뀌는 현상
 
-단, nn 안에서 화이트닝을 진행하도록 하는 것은 간단한 작업이 아님(네트워크 자체를 직접적으로 수정하거나 파라미터를 바꿔주는 등의 작업 필요로 함  => 많은 연산 필요, 효과적이지 않을 뿐더러 어려움)
+각각의 레이어에 whitening을 수행함으로써 평균이 0이고, 공분산이 단위행렬인 정규분포의 데이터 형태로 변환시킨다. => ICS의 데이터 분포도 변화 완화
+
+문제점 (네트워크 자체를 직접적으로 수정하거나 파라미터를 바꿔주는 등의 작업 필요로 한다)
+
+1. 경사하강법 영향을 줄일 가능성이 있다. 레이어의 입력 u에 편향 b를 더한 것을 x라고 했을 때(x = u + b), 최적화 이후 정규화 과정에서 평균값을 빼면서 편향값 b도 함께 제거 : $b <- b + \delta b$ => 다음 학습이 진행되어도 편향치는 계속 비슷한 크기의 기울기가 더해져 발산하게 된다.
+
+2. 이는 공분산 행렬의 계산과 역의 계산이 필요해 계산량 증가
+
+   
 
 <br/>
 
