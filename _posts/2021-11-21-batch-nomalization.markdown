@@ -26,6 +26,14 @@ permalink: /deep_learning/batch_norm/
 
 <br/>
 
+![ics](https://user-images.githubusercontent.com/93882395/142751823-05d7182f-6853-4548-bdaf-59d34ee85299.jpg){: width="550"}
+
+![img](https://user-images.githubusercontent.com/93882395/142751824-886f06eb-dab7-44e8-8efa-7ca377d24a90.png)
+
+<br/>
+
+
+
 ![2](https://user-images.githubusercontent.com/93882395/142751729-3d45423a-7cd6-4d27-8d6e-8924dacb8c78.png){: width="550"}
 
  &nbsp; 배치 정규화 사용 결과 더 큰 learning rate 사용이 가능하며, 가중치 초기화에 신경을 덜 쓰게 된다(weight regularization term 등 제외). 또, batch norm이 정규화 기능을 수행하면서 경우에 따라 dropout을 사용하지 않아도 유사한 성능을 구현한다.
