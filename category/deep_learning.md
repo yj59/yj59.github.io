@@ -2,7 +2,7 @@
 
 layout: category
 
-title: 'deep_learning'
+title: deep_learning
 
 ---
 
