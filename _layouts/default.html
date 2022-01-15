@@ -3,10 +3,6 @@
 
 <head>
   {%- include head.html -%}
-
-  {% if page.use_math %}
-    {% include mathjax_support.html %}
-  {% endif %}
 </head>
 
 {%- if site.plainwhite.condensed_mobile contains page.layout -%}
@@ -28,19 +24,14 @@
         <img src="{{site.baseurl }}/{{ site.plainwhite.portfolio_image }}" alt="{{ site.plainwhite.name }}" />
         {% endif %}
       </a>
-
       <h2 id="title">
         <a href="{{ "/" | relative_url }}">{{ site.plainwhite.name }}</a>
       </h2>
       </div>
-
       {%- if site.plainwhite.tagline -%}
       <p class="tagline">{{ site.plainwhite.tagline }}</p>
-    
       {%- endif -%}
-
       </div>
-
       {% capture footer %}
       {%- if site.plainwhite.social_links != '' -%}
       <ul class="social about-footer {{condensed_class}}">
