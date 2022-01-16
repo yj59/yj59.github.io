@@ -1,8 +1,10 @@
 - title: Compiler
   url: /compiler/
 
-- title: Baekjoon
-  url: /baekjoon/
+- title: Data Struct
+  children:
+    - title: "baekjoon"
+      url: /baekjoon/
 
 - title: About
   url: /about/

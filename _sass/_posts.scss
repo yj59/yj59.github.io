@@ -118,15 +118,17 @@
 
       &:hover,
       &:focus {
-        color: var(--body-bg);
-        background-color: var(--link-hover-color);
+        color: var(--link-hover-color);
+        border-color: var(--link-hover-color);
+        background-color: var(--body-bg);
       }
     }
   }
 }
 
 .post-tag {
+  font-size: 0.9em;
   padding: .1em .5em;
-  border: 1px solid var(--border-color);
+  //border: 1px solid var(--border-color);
   border-radius: .5em;
 }

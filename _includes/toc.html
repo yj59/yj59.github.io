@@ -46,7 +46,7 @@
             * submenu_class (string) :   ''   - add custom class(es) for each child group of headings; has support for '%level%' placeholder which is the current "submenu" heading level
             * baseurl       (string) :   ''   - add a base url to the TOC links for when your TOC is on another page than the actual content
             * anchor_class  (string) :   ''   - add custom class(es) for each anchor element
-            * skipNoIDs     (bool)   : false  - skip headers that do not have an `id` attribute
+            * skipNoIDs     (bool)   :  false  - skip headers that do not have an `id` attribute
 
         Output:
             An ordered or unordered list representing the table of contents of a markdown block. This snippet will only
@@ -59,7 +59,7 @@
     {% assign minHeader = include.h_min | default: 1 %}
     {% assign maxHeader = include.h_max | default: 6 %}
     {% assign nodes = include.html | split: '<h' %}
-    {% assign firstHeader = true %}
+    {% assign firstHeader = False %}
     {% assign previousLevel = 0 %}
 
     {% capture listModifier %}{% if orderedList %}1.{% else %}-{% endif %}{% endcapture %}
