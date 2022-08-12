@@ -59,7 +59,7 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : # true, false (default)
-search                   : # true, false (default)
+search                   : true #false (default)
 search_full_content      : # true, false (default)
 search_provider          : # lunr (default), algolia, google
 lunr:
@@ -107,7 +107,7 @@ author:
   name             : "Yejin An"
   avatar           : "/assets/img/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "hi"
-  location         : "Gumi"
+  location         : "Gumi, Rep. of Korea"
   email            : "yj.osoq@gmail.com"
   links:
     - label: "Email"
