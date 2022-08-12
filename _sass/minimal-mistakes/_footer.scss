@@ -21,9 +21,9 @@
     @include clearfix;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2em;
+    margin-top: 1em;
     max-width: 100%;
-    padding: 0 1em 2em;
+    padding: 0 0.5em 1em;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -61,10 +61,10 @@
 
   li {
     display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 3px;
+    padding-bottom: 0px;
     font-family: $sans-serif-narrow;
-    font-size: $type-size-6;
+    font-size: $type-size-7;
     text-transform: uppercase;
   }
 
@@ -75,7 +75,7 @@
 
   a {
     padding-right: 10px;
-    font-weight: bold;
+    font-weight: normal;
   }
 
   .social-icons {

@@ -15,7 +15,7 @@
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "ko-KR"
+locale                   : "en-US"
 title                    : "Study Logs"
 title_separator          : "-"
 subtitle                 : "할 수 있는 일을 하자"   # site tagline that appears below site title in masthead
@@ -275,10 +275,6 @@ compress_html:
   clippings: all
   ignore:
     envs: development
-
-# toc default
-toc: true
-toc_sticky: false   #목차를 화면 오른 상단에 고정
 
 # Defaults
 defaults:
