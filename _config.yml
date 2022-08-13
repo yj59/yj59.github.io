@@ -18,9 +18,9 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 locale                   : "en-US"
 title                    : "Study Logs"
 title_separator          : "-"
-subtitle                 : "할 수 있는 일을 하자"   # site tagline that appears below site title in masthead
+subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Yejin An"
-description              : "An amazing website."
+description              : "할 수 있는 일을 하자"
 url                      : "https://yj59.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/yj59/yj59.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"

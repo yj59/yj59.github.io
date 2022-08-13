@@ -35,6 +35,7 @@
   margin: 1.414em 0 0.5em;
   padding-bottom: 0.5em;
   font-size: $type-size-5;
+  font-weight: lighter;
   color: $muted-text-color;
   border-bottom: 1px solid $border-color;
 
@@ -240,7 +241,7 @@
 
 .feature__wrapper {
   @include clearfix();
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   border-bottom: 1px solid $border-color;
 
   .archive__item-title {

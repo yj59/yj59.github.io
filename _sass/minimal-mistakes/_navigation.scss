@@ -81,7 +81,7 @@
       text-align: center;
       text-decoration: none;
       color: $muted-text-color;
-      border: 1px solid mix(#000, $border-color, 25%);
+      border: 1px solid mix(rgb(0, 0, 0), $border-color, 25%);
       border-radius: 0;
 
       &:hover {
@@ -168,7 +168,7 @@
 }
 
 /*
-     Priority plus navigation
+     Priority plus navigation (아마 상단바)
      ========================================================================== */
 
 .greedy-nav {
@@ -201,6 +201,7 @@
 
     &.site-title {
       margin-left: 0;
+      font-weight:normal;
     }
   }
 
@@ -239,14 +240,21 @@
 
     a {
       text-decoration: none;
+      font-size:  90%;
       position: relative;
+      opacity: 0.7;
+      -webkit-transition: opacity 0.2s ease-in-out;
+      transition: opacity 0.2s ease-in-out;
 
+      &:hover{
+        opacity: 1;
+      }
       &:before {
         content: "";
         position: absolute;
         left: 0;
         bottom: 0;
-        height: 4px;
+        height: 1.5px;
         background: $primary-color;
         width: 100%;
         -webkit-transition: $global-transition;
@@ -502,7 +510,7 @@
   padding: 0.25rem 0;
   font-family: $sans-serif-narrow;
   font-size: $type-size-6;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: uppercase;
   border-bottom: 1px solid $border-color;
 }
@@ -515,7 +523,9 @@
 .toc {
   font-family: $sans-serif-narrow;
   color: rgb(150, 150, 150);
-  text-decoration: none;
+  border-left: 1px solid rgba(158, 158, 158, 0.17);
+  transition: top 0.2s ease-in-out;
+  animation: fade-up 0.8s;
   //background-color: $background-color;
   //border: none; // 1px solid $border-color;
   //border-radius: none; // $border-radius;
@@ -534,7 +544,7 @@
   .active a {
     @include yiq-contrasted($active-color);
     color: #4e91a5;
-    font-size: 110%;
+    font-size: 115%;
   }
 }
 
