@@ -1,11 +1,16 @@
 ---
-layout: post
-title:  "markdown test"
-date:   2021-11-18
-categories: markdown
-use_math: true
-
-permalink: /markdown/test/
+title: "Markup: HTML Tags and Formatting"
+header:
+  teaser: "assets/images/markup-syntax-highlighting-teaser.jpg"
+categories:
+  - Markup
+tags:
+  - content
+  - css
+  - formatting
+  - html
+  - markup
+toc: true
 ---
 
 # 한영 출력 확인
