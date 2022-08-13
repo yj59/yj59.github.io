@@ -137,6 +137,7 @@ a {
   }
 
   &:hover {
+    text-decoration: none;
     color: $link-color-hover;
     outline: 0;
   }
@@ -256,6 +257,7 @@ figcaption {
     transition: $global-transition;
 
     &:hover {
+      text-decoration: none;
       color: $link-color-hover;
     }
   }

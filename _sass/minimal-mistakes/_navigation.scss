@@ -70,6 +70,7 @@
     margin-left: -1px;
 
     a {
+      text-decoration: none;
       display: block;
       margin-bottom: 0.25em;
       padding: 0.5em 1em;
@@ -104,6 +105,7 @@
       margin-left: 0;
 
       a {
+        text-decoration: none;
         border-top-left-radius: $border-radius;
         border-bottom-left-radius: $border-radius;
       }
@@ -111,6 +113,7 @@
 
     &:last-child {
       a {
+        text-decoration: none;
         border-top-right-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
       }
@@ -235,6 +238,7 @@
     }
 
     a {
+      text-decoration: none;
       position: relative;
 
       &:before {
@@ -277,11 +281,13 @@
     }
 
     a {
+      text-decoration: none;
       margin: 0;
       padding: 10px 20px;
       font-size: $type-size-5;
 
       &:hover {
+        text-decoration: none;
         color: $masthead-link-color-hover;
         background: $navicon-link-color-hover;
       }
@@ -422,6 +428,7 @@
     }
 
     a {
+      
       display: block;
       padding: 0.25em 0;
 
@@ -431,7 +438,8 @@
       }
 
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
+        color: #235e70;
       }
     }
   }
@@ -503,26 +511,30 @@
      Table of contents navigation
      ========================================================================== */
 
+
 .toc {
   font-family: $sans-serif-narrow;
-  color: $gray;
-  background-color: $background-color;
-  border: none; // 1px solid $border-color;
-  border-radius: none; // $border-radius;
-  -webkit-box-shadow: $box-shadow;
-  box-shadow: $box-shadow;
+  color: rgb(150, 150, 150);
+  text-decoration: none;
+  //background-color: $background-color;
+  //border: none; // 1px solid $border-color;
+  //border-radius: none; // $border-radius;
+  //-webkit-box-shadow: $box-shadow;
+  //box-shadow: $box-shadow;
 
   .nav__title {
-    color: gray;
+    color: #235e70;
     font-size: $type-size-6;
-    background: $primary-color;
-    border-top-left-radius: $border-radius;
-    order-top-right-radius: $border-radius;
+    //background: $primary-color;
+    //border-top-left-radius: $border-radius;
+    //order-top-right-radius: $border-radius;
   }
 
   // Scrollspy marks toc items as .active when they are in focus
   .active a {
     @include yiq-contrasted($active-color);
+    color: #4e91a5;
+    font-size: 110%;
   }
 }
 
@@ -532,42 +544,50 @@
   width: 100%;
   list-style: none;
   font-size: $type-size-6;
+  text-decoration: none;
 
   @include breakpoint($large) {
     font-size: $type-size-7;
   }
 
   a {
+    text-decoration: none;
     display: block;
     padding: 0.25rem 0.75rem;
     color: $muted-text-color;
     font-weight: normal;  //bold;
-    line-height: 1.5;
-    border-bottom: 1px solid $border-color;
+    color: rgb(150, 150, 150);
+    //line-height: 1.5;
+    //border-bottom: 1px solid $border-color;
 
-    &:hover {
-      color: $text-color;
-    }
+    //&:hover {
+    //  color: #4e91a5;
+    //}
   }
 
   li ul > li a {
+    text-decoration: none;
     padding-left: 1.25rem;
     font-weight: normal;
   }
 
   li ul li ul > li a {
+    text-decoration: none;
     padding-left: 1.75rem;
   }
 
   li ul li ul li ul > li a {
+    text-decoration: none;
     padding-left: 2.25rem;
   }
 
   li ul li ul li ul li ul > li a {
+    text-decoration: none;
     padding-left: 2.75rem;
   }
 
   li ul li ul li ul li ul li ul > li a {
+    text-decoration: none;
     padding-left: 3.25rem
   }
 }

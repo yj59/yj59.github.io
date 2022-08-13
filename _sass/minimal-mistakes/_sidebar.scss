@@ -19,7 +19,7 @@
   @include breakpoint($large) {
     float: left;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
-    opacity: 0.75;
+    opacity: 0.7;
     -webkit-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
 
@@ -72,6 +72,7 @@
 }
 
 .sidebar__right {
+  
   margin-bottom: 1em;
 
   @include breakpoint($large) {
@@ -319,7 +320,7 @@
     text-decoration: none;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 }

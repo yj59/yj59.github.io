@@ -6,6 +6,7 @@ categories: deep_learning
 use_math: true
 
 permalink: /deep_learning/batch_norm/
+toc_sticky: true
 ---
 
 <br/>
