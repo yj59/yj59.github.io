@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "Yejin An"
   avatar           : "/assets/img/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "hi"
+  bio              : "할 수 있는 일을 하자"
   location         : "Gumi, Rep. of Korea"
   email            : "yj.osoq@gmail.com"
   links:
@@ -127,7 +127,7 @@ author:
       url: "https://github.com/yj59/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/last.59/"
+      # url: "https://instagram.com/last.59/"
 
 # Site Footer
 footer:
