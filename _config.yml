@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "Study Logs"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Yejin An"
+name                     : "Yejin"
 description              : "할 수 있는 일을 하자"
 url                      : "https://yj59.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
