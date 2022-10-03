@@ -343,3 +343,10 @@ input[type="submit"],
   -webkit-transition: $global-transition;
   transition: $global-transition;
 }
+
+// 카테고리 페이지 태그 밑줄 색상
+.tag_underline{
+  text-decoration: underline;
+  text-underline-position:under;
+  text-decoration-color: $link-color;
+}
