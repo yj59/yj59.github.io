@@ -344,9 +344,11 @@ input[type="submit"],
   transition: $global-transition;
 }
 
+/*
 // 카테고리 페이지 태그 밑줄 색상
 .tag_underline{
-  text-decoration: underline;
-  text-underline-position:under;
-  text-decoration-color: $link-color;
+  border: 1px solid $tag-border-color;
+  padding: 1.5px;
+  border-radius: 3px;
 }
+*/
