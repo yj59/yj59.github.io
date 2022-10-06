@@ -10,7 +10,7 @@ $doc-font-size: 14 !default;  //16 !default;
 
 /* paragraph indention */
 $paragraph-indent: false !default; // true, false (default)
-$indent-var: 1.3em !default;
+$indent-var: 0.5em !default;  // 기본 테마값: 1.3em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
