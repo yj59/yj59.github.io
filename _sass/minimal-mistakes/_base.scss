@@ -178,12 +178,14 @@ hr {
 
 ul li,
 ol li {
-  margin-bottom: 0.5em;
+  line-height: 2;
+  //margin-bottom: 0.2em;
 }
 
 li ul,
 li ol {
-  margin-top: 0.5em;
+  line-height: 2;
+  //margin-top: 0.2m;
 }
 
 /*

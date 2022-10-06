@@ -1,9 +1,9 @@
 # main links
 main:
-  - title: "About"
-    url: 
+  # - title: "About"
+  #   url: 
   - title: "Blog"
-    url: 
+    url: /
   - title: "Category"
     url: /categories/
   # - title: "Quick-Start Guide"
