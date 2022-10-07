@@ -13,6 +13,17 @@
     {% include head.html %}
     {% include head/custom.html %}
     {% include mathjax_support.html %}
+
+    <style> 
+      ::-webkit-scrollbar{width: 5px;}
+      ::-webkit-scrollbar-track {background-color:#c1afae; border-radius: 5px;}
+      ::-webkit-scrollbar-thumb {background-color:#756A69; border-radius: 5px;}
+      ::-webkit-scrollbar-thumb:hover {background: rgb(168, 197, 219);}
+      ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment 
+      {
+          width:5px;height:px;background:transparent;
+      } 
+    </style>
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
