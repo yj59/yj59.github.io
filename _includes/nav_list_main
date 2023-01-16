@@ -24,6 +24,14 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+        <span class="nav__sub-title" style="font-size: 90%;">📂 Unreal Engine</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Unreal Tutorials" %}
+                        <li><a href="/categories/unrealtuto" class="">Unreal Tutorials ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>    
         <span class="nav__sub-title" style="font-size: 90%;">📂 Unity</span>
             <ul>
                 {% for category in site.categories %}
@@ -32,6 +40,7 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+
         <span class="nav__sub-title" style="font-size: 90%;">📂 Computer Science</span>
             <ul>
                 {% for category in site.categories %}
