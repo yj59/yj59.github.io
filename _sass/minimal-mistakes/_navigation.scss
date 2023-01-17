@@ -86,6 +86,7 @@
 
       &:hover {
         color: $link-color-hover;
+        text-decoration : none;
       }
 
       &.current,
@@ -137,6 +138,7 @@
 
     &:hover {
       @include yiq-contrasted($muted-text-color);
+      text-decoration : none;
     }
 
     &:first-child {
@@ -247,6 +249,7 @@
       transition: opacity 0.2s ease-in-out;
 
       &:hover{
+        text-decoration : none;
         opacity: 1;
       }
       &:before {
@@ -396,6 +399,7 @@
       }
 
       &:hover {
+        text-decoration : none;
         color: #fff;
         border-color: $gray;
         background-color: mix(white, #000, 20%);
@@ -458,6 +462,7 @@
   font-size: 1.25rem;
 
   a {
+    text-decoration : none;
     color: inherit;
   }
 
@@ -522,7 +527,7 @@
 
 .toc {
   font-family: $sans-serif-narrow;
-  color: rgb(150, 150, 150);
+  color: rgb(187, 187, 187);
   border-left: 1px solid rgba(158, 158, 158, 0.17);
   transition: top 0.2s ease-in-out;
   animation: fade-up 0.8s;
@@ -543,21 +548,25 @@
   // Scrollspy marks toc items as .active when they are in focus
   .active a {
     @include yiq-contrasted($active-color);
-    color: #aca4a4c8;
+    text-decoration : none;
+    color: #8d8484;
     font-size: 115%;
+    font-style: italic;
   }
 }
 
 .toc__menu {
+  
   margin: 0;
   padding: 0;
   width: 100%;
   list-style: none;
-  font-size: $type-size-6;
+
+  font-size: $type-size-5;
   text-decoration: none;
 
   @include breakpoint($large) {
-    font-size: $type-size-7;
+    font-size: $type-size-6;
   }
 
   a {
@@ -566,7 +575,7 @@
     padding: 0.25rem 0.75rem;
     color: $muted-text-color;
     font-weight: normal;  //bold;
-    color: rgb(150, 150, 150);
+    color: rgba(130, 130, 130, 0.85);
     //line-height: 1.5;
     //border-bottom: 1px solid $border-color;
 

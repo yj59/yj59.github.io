@@ -2,6 +2,8 @@
    MASTHEAD
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital@0;1&family=Rozha+One&display=swap');
+
 .masthead {
   position: relative;
   border-bottom: 1px solid $border-color;
@@ -50,8 +52,10 @@
   display: flex;
   -ms-flex-item-align: center;
   align-self: center;
-  font-weight: bold;
+  font-weight: normal;
   // z-index: 20;
+  font-family: 'Rozha One', serif; // 'Playfair Display SC', serif;
+  font-style: italic;
 }
 
 .site-subtitle {
