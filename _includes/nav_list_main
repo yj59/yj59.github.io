@@ -40,7 +40,14 @@
                     {% endif %}
                 {% endfor %}
             </ul>
-
+        <span class="nav__sub-title" style="font-size: 90%;">📂 BOJ</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "DP" %}
+                        <li><a href="/categories/dp" class="">DP ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         <span class="nav__sub-title" style="font-size: 90%;">📂 Computer Science</span>
             <ul>
                 {% for category in site.categories %}
