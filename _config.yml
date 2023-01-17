@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Study Logs"
+title                    : "Keep Calm and Carry On👑"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Yejin"
-description              : "할 수 있는 일을 하자"
+description              : "Study Logs"
 url                      : "https://yj59.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/yj59/yj59.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -38,7 +38,7 @@ comments:
   facebook:
     # https://developers.facebook.com/docs/plugins/comments
     appid                :
-    num_posts            : # 5 (default)
+    num_posts            : 10 # 5 (default)
     colorscheme          : # "light" (default), "dark"
   utterances:
     theme                : # "github-light" (default), "github-dark"
@@ -104,10 +104,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Yejin An"
-  avatar           : "/assets/img/avatar.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "할 수 있는 일을 하자"
-  location         : "Gumi, Rep. of Korea"
+  name             : "Yejin"
+  avatar           : "/assets/img/avatar2.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "지금 할 수 있는 일을 하자.<br>내 갈 길 가기🪄 아쟈"
+  location         : "Rep. of Korea"
   email            : "yj.osoq@gmail.com"
   links:
     - label: "Email"
@@ -218,7 +218,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+paginate: 10 # amount of posts to show
 paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
