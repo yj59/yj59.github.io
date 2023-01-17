@@ -1,5 +1,5 @@
 ---
-title: "언리얼 튜토리얼 #1 구성요소 살피기"
+title: "언리얼 튜토리얼 #1 프로젝트 구성요소"
 
 header:
   overlay_image: https://user-images.githubusercontent.com/93882395/212655591-8ae50295-2acd-4d6b-9a8d-b6924f334ab3.jpg
