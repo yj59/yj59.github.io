@@ -62,7 +62,7 @@ $light-gray: mix(#fff, $gray, 50%) !default;
 $lighter-gray: mix(#fff, $gray, 90%) !default;
 
 $background-color: #fff !default;
-$code-background-color: #fafafa !default;
+$code-background-color: mix(#fff, $background-color, 20%) !default;
 $code-background-color-dark: $light-gray !default;
 $text-color: $dark-gray !default;
 $muted-text-color: mix(#fff, $text-color, 20%) !default;
@@ -123,9 +123,28 @@ $navicon-link-color-hover: mix(#fff, $primary-color, 75%) !default;
 
 /* notices */
 $notice-background-mix: 80% !default;
-$code-notice-background-mix: 90% !default;
+$code-notice-background-mix: 50% !default;
 
-/* syntax highlighting (base16) */
+//scheme: "Default Light"
+//author: "Chris Kempson (http://chriskempson.com)"
+$base00: #f8f8f8;
+$base01: #e8e8e8;
+$base02: #d8d8d8;
+$base03: #b8b8b8;
+$base04: #585858;
+$base05: #383838;
+$base06: #282828;
+$base07: #181818;
+$base08: #ab4642;
+$base09: #dc9656;
+$base0a: #f7ca88;
+$base0b: #a1b56c;
+$base0c: #86c1b9;
+$base0d: #7cafc2;
+$base0e: #ba8baf;
+$base0f: #a16946;
+
+/* syntax highlighting (base16) //디폴트테마 베이스 색상값!
 $base00: #263238 !default;
 $base01: #2e3c43 !default;
 $base02: #314549 !default;
@@ -141,7 +160,7 @@ $base0b: #c3e88d !default;
 $base0c: #89ddff !default;
 $base0d: #82aaff !default;
 $base0e: #c792ea !default;
-$base0f: #ff5370 !default;
+$base0f: #ff5370 !default;*/
 
 /*
    Breakpoints
@@ -170,7 +189,7 @@ $right-sidebar-width-wide: 250px !default;
    Other
    ========================================================================== */
 
-$border-radius: 4px !default;
+$border-radius: 5px !default;
 $box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125) !default;
 $nav-height: 2em !default;
 $nav-toggle-height: 2rem !default;
