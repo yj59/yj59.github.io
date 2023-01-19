@@ -17,7 +17,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Keep Calm and Carry On👑"
+title                    : "Keep Calm and Carry On🌿"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Yejin"
@@ -106,7 +106,7 @@ analytics:
 # Site Author
 author:
   name             : "Yejin"
-  avatar           : "/assets/img/deviantart_sky_Renlrako.gif" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/img/lds_05_by_akumiirako_dbfgoev.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "지금 할 수 있는 일을 하자.<br>내 갈 길 가기🪄 아쟈"
   location         : "Rep. of Korea"
   email            : "yj.osoq@gmail.com"
