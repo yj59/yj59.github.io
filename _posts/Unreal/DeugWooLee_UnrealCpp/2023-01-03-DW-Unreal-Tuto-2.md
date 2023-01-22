@@ -1,5 +1,5 @@
 ---
-title: "언리얼 튜토리얼 #2 액터 설계, 클래스 살펴보기"
+title: "언리얼 튜토리얼 #2 액터 설계"
 
 header:
   overlay_image: https://user-images.githubusercontent.com/93882395/212655591-8ae50295-2acd-4d6b-9a8d-b6924f334ab3.jpg
@@ -28,12 +28,119 @@ use_math: true
 > 2. [Unreal Engine 4.27 Documentation](https://docs.unrealengine.com/4.27/ko/)
 >     *   [유니티 개발자를 위한 언리얼 엔진4](https://docs.unrealengine.com/4.27/ko/Basics/UnrealEngineForUnityDevs/)
 
-***✨info***<br> 본 튜토리얼 교재는 언리얼 4.19v 기준이나, 4.27v으로 실습 후 게시글을 작성하였습니다.<br>교재보다는 새로 알게 된 내용과 추가로 공부한 내용 위주로 서술합니다. 배우는 과정이라 부족한 점이 많습니다.😊
+***✨info***<br> 본 튜토리얼 교재는 언리얼 4.19v 기준이나, 4.27v으로 실습 후 게시글을 작성하였습니다.<br>교재 흐름보다는 새로 알게 된 내용과 추가로 공부한 내용 위주로 서술합니다. 배우는 과정이라 부족한 점이 많습니다.😊
 {: .notice--info}
 
 <br>
 
-# 1. 액터 설계
+---
 
-액터 구성하려면 어떤 컴포넌트가 필요한지, 선언부에는 뭐가 들어가야 하고 구현부에는 어떤게 들어가야 하는지 등
+# **1. 액터 설계**
 
+분수대 액터에 스태틱메시 컴포넌트를 추가해보자.
+
+*   분수대 액터: **구조대**와 **물**으로 구성
+    *   **구조대**: 스태틱메시 컴포넌트*(비주얼, 충돌)* => 루트 컴포넌트
+    *   **물**: 스태틱메시 컴포넌트*(비주얼)*
+
+<br>
+
+한 엑터가 두 개의 스태틱메시 컴포넌트를 가지려면 액터의 멤버 변수에 두 개의 컴포넌트 클래스 포인터를 선언해야 한다.
+
+`CoreMinimal.h` -> `EngineMinimal.h` 으로 변경해 분수대 액터 클래스가  `UStaticMeshComponent` 클래스를 참조할 수 있도록 하자.
+
+*   `CoreMinimal.h`: 언리얼 오브젝트가 동작하는 최소 기능 선언*(기본적인 연산, 타입 지정 등)*
+*   `EngineMinimal.h`:  `CoreMinimal.h`를 포함한 엔진 클래스 선언의 집합
+
+불필요한 헤더 파일을 참조하는데 걸리는 컴파일 시간과 인텔리센스의 부하를 최소화하기 위해 클래스 템플릿의 기본 헤더가 `CoreMinimal.h`으로 변경되었다. 콘텐츠를 제작하기 위해선 다양한 엔진 기능이 필요하니 `EngineMinimal.h`로 변경해주자.
+
+<br>
+
+## **1.1. Fountain.h**
+
+```c++
+//Fountain.h
+#pragma once
+#include "EngineMinimal.h"
+#include "GameFramework/Actor.h"
+#include "Fountain.generated.h"
+
+UCLASS()
+class UNREALTUTORIAL_API AFountain : public AActor
+{
+	GENERATED_BODY()
+
+...
+    
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* Body;
+
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* Water;
+};
+```
+
+*   `UStaticMeshComponent`포인터 변수로 분수대 액터 선언 (`Body`, `Water`)
+*   **`UPROPERTY()`**: 언리얼 실행 환경이 객체를 자동으로 관리해주는 매크로
+    *    객체가 더 사용되지 않으면 할당된 메모리 자동 소멸
+    *   포인트 선언 코드 윗줄에 매크로 추가
+    *   언리얼 오브젝트에만 매크로 사용 가능
+
+*   **언리얼 오브젝트**
+
+    *   언리얼 실행 환경에 의해 관리되는 C++ 객체
+
+    *   콘텐츠를 구성하는 객체 전반을 일컬음
+
+>   언리얼 에디터의 디테일 윈도우에서 직접 컴포넌트의 속성을 편집하기 위해 `UPROPERTY` 매크로 안에 `VisibleAnywhere` 키워드를 추가한 후 컴파일하자.
+
+<br>
+
+**언리얼 오브젝트 클래스 조건**: (*선언부에 특정 매크로와 규칙 부여*)
+
+1.   **클래스 선언 매크로**: 해당 클래스가 언리얼 오브젝트임을 선언
+     *   언리얼 선언 윗줄:`UCLASS`
+     *   클래스 내부 `GENERATED_BODY`
+2.   **클래스 이름 접두사**
+     *   액터 클래스: `A` *(분수대 액터 -> **A**Foundation)*
+     *   액터가 아닌 클래스: `U` *(스태틱메시 -> **U**StaticMeshComponent)*
+     *   일반 c++클래스/구조체*(언리얼과 관련x)*: `F`
+3.   **`generated.h`헤더 파일**: 언리얼 헤더 툴이 생성한 부가 정보 파일을 가져오도록 함
+     *   `(클래스명).generated.h` 선언
+4.   **외부 모듈 공개 여부**: 다른 모듈에서 해당 객체에 접근할 수 있도록 설정
+     *   클래스 선언 앞: `(모듈명)_API`
+
+<br>
+
+## **1.2. Fountain.cpp**
+
+```c++
+//Fountain.cpp
+#include "Fountain.h"
+
+AFountain::AFountain()
+{
+	PrimaryActorTick.bCanEverTick = true;
+
+	Body = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BODY"));
+	Water = CreateAbstractDefaultSubobject<UStaticMeshComponent>(TEXT("WATER"));
+
+	RootComponent = Body;
+	Water->SetupAttachment(Body);
+    
+	Water->SetRelativeLocation(FVector(0.0f, 0.0f, 135.0f));
+}
+...
+```
+
+액터의 구축은 클래스의 생성자 코드에서 작성한다. 생성자 코드에서 컴포넌트를 생성하기 위해 `CreateDefaultSubobject` API 함수를 사용한다.
+
+`Body` 컴포넌트가 루트 컴포넌트이므로, `Water`가 `Body`의 자식이 되도록 설정한다.
+
+*   `CreateDefaultSubobject`: 
+    *   `TEXT("해시값")`: 컴포넌트를 구별하기 위한 해시 값. `TEXT`매크로를 통해 문자열 체계 통일
+*   `SetRelativeLocation`: 컴포넌트의 기본 위치 변경
