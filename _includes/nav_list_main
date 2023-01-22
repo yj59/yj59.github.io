@@ -51,6 +51,9 @@
         <span class="nav__sub-title" style="font-size: 90%;">📂 Computer Science</span>
             <ul>
                 {% for category in site.categories %}
+                    {% if category[0] == "DataStructure" %}
+                        <li><a href="/categories/ds" class="">Data Structure ({{category[1].size}})</a></li>
+                    {% endif %}
                     {% if category[0] == "Compiler" %}
                         <li><a href="/categories/compiler" class="">Compiler ({{category[1].size}})</a></li>
                     {% endif %}
