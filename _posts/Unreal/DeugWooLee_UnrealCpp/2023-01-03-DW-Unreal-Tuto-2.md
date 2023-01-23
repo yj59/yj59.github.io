@@ -76,31 +76,58 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Body;
+    UPROPERTY(VisibleAnywhere)
+    UStaticMeshComponent* Body;
 
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Water;
+    UPROPERTY(VisibleAnywhere)
+    UStaticMeshComponent* Water;
+
+    UPROPERTY(VisibleAnywhere)
+    UPointLightComponent* Light;
+
+    UPROPERTY(VisibleAnywhere)
+    UParticleSystemComponent* Splash;
+
+    UPROPERTY(EditAnywhere, Category=ID)
+    int32 ID;
 };
 ```
 
 *   `UStaticMeshComponent`포인터 변수로 분수대 액터 선언 (`Body`, `Water`)
+    *   `UPointLightComponent`: 조명 컴포넌트 클래스
+    *   `UParticleSystemComponent`: 이펙트 컴포넌트 클래스
 *   **`UPROPERTY()`**: 언리얼 실행 환경이 객체를 자동으로 관리해주는 매크로
     *    객체가 더 사용되지 않으면 할당된 메모리 자동 소멸
-    *   포인트 선언 코드 윗줄에 매크로 추가
-    *   언리얼 오브젝트에만 매크로 사용 가능
+    *    포인트 선언 코드 윗줄에 매크로 추가
+    *    **언리얼 오브젝트**에만 매크로 사용 가능
+         *    언리얼 실행 환경에 의해 관리되는 C++ 객체
+         *    콘텐츠를 구성하는 객체 전반을 일컬음
+    *    데이터 자료형에 매크로를 선언해줄 경우 기본값이 자동으로 지정됨 *(eg. 정수형 -> 초기값 0 보장)*
 
-*   **언리얼 오브젝트**
+언리얼 에디터에서 직접 컴포넌트의 속성을 편집하려면 `UPROPERTY` 매크로 안에 [**프로퍼티 지정자**](https://docs.unrealengine.com/4.27/ko/ProgrammingAndScripting/GameplayArchitecture/Properties/)를 추가해야 한다.
 
-    *   언리얼 실행 환경에 의해 관리되는 C++ 객체
+**대표적인 프로퍼티 지정자**
 
-    *   콘텐츠를 구성하는 객체 전반을 일컬음
+*   `VisibleAnywhere`: 속성값 확인 가능
+    *   4.27.2 버전에선 키워드를 추가하지 않으면 디테일 윈도우에서 선언한 컴포넌트 자체를 볼 수 없음
+*   `EditAnywhere`: 속성의 데이터 변경시 사용
 
->   언리얼 에디터의 디테일 윈도우에서 직접 컴포넌트의 속성을 편집하기 위해 `UPROPERTY` 매크로 안에 `VisibleAnywhere` 키워드를 추가한 후 컴파일하자.
+>   `UPROPERTY` 매크로의 키워드가 `VisibleAnywhere`일 경우, 디테일 윈도우에서 값 유형은 변경할 수 없다. 왜 객체의 속성은 편집할 수 있을까?
+>
+>   => `VisibleAnywhere` 키워드는 객체를 볼 수는 있지만 다른 객체로 변경은 불가능하다. 
+>   <br>예를 들어, `UStaticMeshComponent`로 선언한 컴포넌트를 라이트 컴포넌트로 바꿀 수 없다. 단, 객체는 레벨에 객체를 구성하기 위한 세부 데이터들이 있으므로 에디터에서 해당 값들을 보여주고 편집할 수 있게 한다.
+>
+>   <br>
+>
+>   *+) `VisibleAnywhere` 키워드를 작성하지 않고 헤더를 컴파일했을 때 디테일 뷰에서 컴포넌트 자체를 확인할 수 없었다. 에디터에서 컴포넌트를 보려면 `VisibleAnywhere`를 꼭 적어주자.*
 
 <br>
 
-**언리얼 오브젝트 클래스 조건**: (*선언부에 특정 매크로와 규칙 부여*)
+### **1.1.1. 언리얼 오브젝트**
+
+> [UE 4.27 Doc](https://docs.unrealengine.com/4.27/ko/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Objects/)
+
+**언리얼 오브젝트 클래스 조건**
 
 1.   **클래스 선언 매크로**: 해당 클래스가 언리얼 오브젝트임을 선언
      *   언리얼 선언 윗줄:`UCLASS`
@@ -113,6 +140,22 @@ public:
      *   `(클래스명).generated.h` 선언
 4.   **외부 모듈 공개 여부**: 다른 모듈에서 해당 객체에 접근할 수 있도록 설정
      *   클래스 선언 앞: `(모듈명)_API`
+
+<br>
+
+### **1.1.2. 언리얼 속성 값**
+
+언리얼 오브젝트의 속성 값은 객체를 관리하는 객체 유형과 값을 관리하는 값 유형으로 나뉜다. `UStaticMeshComponent* Body;`와 같은 오브젝트 클래스 포인터는 객체 유형에 해당한다.
+
+<br>
+
+[**대표적인 언리얼 엔진 자료형**](https://docs.unrealengine.com/4.27/ko/ProgrammingAndScripting/GameplayArchitecture/Properties/)
+
+*   **byte**: `uint8`
+*   **정수**: `int32`
+*   **실수**: `float`
+*   **문자열**: `FString`, `FName`
+*   **구조체**: `FVector`, `FRotator`, `FTransform`
 
 <br>
 
@@ -144,3 +187,9 @@ AFountain::AFountain()
 *   `CreateDefaultSubobject`: 
     *   `TEXT("해시값")`: 컴포넌트를 구별하기 위한 해시 값. `TEXT`매크로를 통해 문자열 체계 통일
 *   `SetRelativeLocation`: 컴포넌트의 기본 위치 변경
+
+<br>
+
+---
+
+>   
