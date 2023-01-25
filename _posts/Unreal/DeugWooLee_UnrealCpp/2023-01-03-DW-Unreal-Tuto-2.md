@@ -37,6 +37,8 @@ use_math: true
 
 # **1. 액터 설계**
 
+<br>
+
 분수대 액터에 스태틱메시 컴포넌트를 추가해보자.
 
 *   분수대 액터: **구조대**와 **물**으로 구성
@@ -192,4 +194,83 @@ AFountain::AFountain()
 
 ---
 
->   
+# **2. 애셋 지정**
+
+<br>
+
+레벨 애셋을 제외한 언리얼 애셋 확장자는 **.uasset**으로 모두 동일하나 서로 다른 데이터 타입을 지원한다. 콘텐츠 브라우저에서 애셋을 오른쪽 마우스로 누르면 해당 애셋이 지원하는 타입의 헤더 파일과 세부 정보를 확인할 수 있다.
+
+<br>
+
+애셋 정보를 관련 오브젝트 코드에 등록해보자. 에디터에서 별도의 작업 없이 오브젝트를 여러 개  띄워도 자동으로 해당 애셋을 로딩시켜준다. 
+
+<br>
+
+코드에서 애셋을 불러들이기 위해선 애셋의 키 값이 필요하다. 키 값을 `FObjectFinder` 변수로 전달해 해당 애셋의 포인터를 가져와야 컴포넌트 함수에 올바르게 등록할 수 있다. 애셋의 키 값은 파일명과 애셋명을 전부 포함한 경로명을 사용한다.
+
+게임 실행 도중 애셋의 경로가 변경될 일이 없으므로,  `FObjectFinder`변수를 `static`으로 선언해 한 번만 초기화시키자.
+
+(지역변수의 불필요한 생성과 초기화를 막을 수 있다.)
+
+<br>
+
+**애셋을 지정하는 방법**
+
+1.   애셋 우클릭 -> `레퍼런스 복사`
+
+     *   레퍼런스 정보: `{오브젝트 타입}'{폴더명}/{파일명}.{애셋명}'`
+         *   `오브젝트 타입`: 애셋 타입
+         *   애셋 경로
+             *   `폴더명/파일명`: 고유값 필수!
+             *   `애셋명`: 중복 가능
+
+2.   적용하고자 하는 `오브젝트.cpp`의 생성자 코드에 `FObjectFinder` 변수 선언 후 경로 값 붙여넣기
+
+     *   `static ConstructorHelpers::FObjectFinder<{오브젝트 타입}>{경로명}(TEXT("{애셋 경로}"))`
+
+3.   해당 애셋의 컴포넌트 함수로 포인터 전달
+
+     *   `Object`멤버 값으로 포인터 전달 가능
+
+     *   `{컴포넌트 변수명}->{컴포넌트 함수}({오브젝트명}.Object)`
+
+         *(eg. `Body->SetStaticMesh(SM_BODY.Object)`)*
+
+<br>
+
+## **2.1. Fountain.cpp**
+
+```c++
+#include "Fountain.h"
+
+AFountain::AFountain()	//Fountain 생성자
+{
+ 	...
+	//분수대 몸체=>StaticMash
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>SM_BODY(TEXT("/Game/InfinityBladeGrassLands/Environments/Plains/Env_Plains_Ruins/StaticMesh/SM_Plains_Castle_Fountain_01.SM_Plains_Castle_Fountain_01"));
+	
+	//SetStaticMesh 함수에 SM_BODY의 포인터 전달
+	if (SM_BODY.Succeeded())
+	{
+		Body->SetStaticMesh(SM_BODY.Object);
+	}
+    
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>SM_WATER(TEXT("/Game/InfinityBladeGrassLands/Effects/FX_Meshes/Env/SM_Plains_Fountain_02.SM_Plains_Fountain_02"));
+
+	if (SM_WATER.Succeeded())
+	{
+		Water->SetStaticMesh(SM_WATER.Object);
+	}
+    
+	//Splash 효과 => UParticleSystem
+	static ConstructorHelpers::FObjectFinder<UParticleSystem>PS_SPLASH(TEXT("/Game/InfinityBladeGrassLands/Effects/FX_Ambient/Water/P_Water_Fountain_Splash_Base_01.P_Water_Fountain_Splash_Base_01"));
+	
+	//SetTemplate 함수에 PS_SPLASH 포인터 전달
+	if (PS_SPLASH.Succeeded())
+	{
+		Splash->SetTemplate(PS_SPLASH.Object);
+	}
+}
+...
+```
+
