@@ -5,8 +5,8 @@ categories:
   - CppSTL
 
 tags:
-  - Cpp
-  - STL
+  - cpp
+  - stl
 
 toc: true
 toc_sticky: true

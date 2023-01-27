@@ -22,6 +22,9 @@
                     {% if category[0] == "CppSTL" %}
                         <li><a href="/categories/cppstl" class="">STL ({{category[1].size}})</a></li>
                     {% endif %}
+                    {% if category[0] == "CppSTLPlus" %}
+                        <li><a href="/categories/cppstlplus" class="">STL 한 걸음 더({{category[1].size}})</a></li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         <span class="nav__sub-title" style="font-size: 90%;">📂 Unreal Engine</span>
@@ -32,6 +35,14 @@
                     {% endif %}
                 {% endfor %}
             </ul>    
+        <span class="nav__sub-title" style="font-size: 90%;">📂 Graphics</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Blender" %}
+                        <li><a href="/categories/blender" class="">Blender ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>     
         <span class="nav__sub-title" style="font-size: 90%;">📂 Unity</span>
             <ul>
                 {% for category in site.categories %}
