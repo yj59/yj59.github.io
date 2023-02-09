@@ -11,7 +11,9 @@
             <span style="font-size: 90%;">✨ Total Posts ({{sum}})</span>
             <!--📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">{{sum}}</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> -->
       </li>
+
       <li>
+        
         <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#-->
         <span class="nav__sub-title" style="font-size: 90%;">📂 C++</span>
             <!--ul 태그로 같은 카테고리들 모아둔 페이지들 나열-->
@@ -27,7 +29,8 @@
                     {% endif %}
                 {% endfor %}
             </ul>
-        <span class="nav__sub-title" style="font-size: 90%;">📂 BOJ</span>
+
+        <span class="nav__sub-title" style="font-size: 90%;">📂 BOJ</span>   
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "DP" %}
@@ -35,6 +38,8 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+
+        <span class="nav__sub-title" style="font-size: 90%;">📂 Computer Science</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Algorithm" %}
@@ -42,6 +47,18 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Data Structure" %}
+                        <li><a href="/categories/ds" class="">Data Structure ({{category[1].size}})</a></li>
+                    {% endif %}
+
+                    {% if category[0] == "Compiler" %}
+                        <li><a href="/categories/compiler" class="">Compiler ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
         <span class="nav__sub-title" style="font-size: 90%;">📂 Unreal Engine</span>
             <ul>
                 {% for category in site.categories %}
@@ -49,7 +66,8 @@
                         <li><a href="/categories/unrealtuto" class="">Unreal Tutorials ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
-            </ul>    
+            </ul>  
+
         <span class="nav__sub-title" style="font-size: 90%;">📂 Graphics</span>
             <ul>
                 {% for category in site.categories %}
@@ -57,23 +75,13 @@
                         <li><a href="/categories/blender" class="">Blender ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
-            </ul>     
+            </ul> 
+
         <span class="nav__sub-title" style="font-size: 90%;">📂 Unity</span>
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "UnityLearn" %}
                         <li><a href="/categories/unitylearn" class="">Unity Learn ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        <span class="nav__sub-title" style="font-size: 90%;">📂 Computer Science</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Data Structure" %}
-                        <li><a href="/categories/ds" class="">Data Structure ({{category[1].size}})</a></li>
-                    {% endif %}
-                    {% if category[0] == "Compiler" %}
-                        <li><a href="/categories/compiler" class="">Compiler ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
