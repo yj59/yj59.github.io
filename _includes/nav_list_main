@@ -27,6 +27,21 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+        <span class="nav__sub-title" style="font-size: 90%;">📂 BOJ</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "DP" %}
+                        <li><a href="/categories/dp" class="">DP ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Algorithm" %}
+                        <li><a href="/categories/algorithm" class="">Algorithm ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         <span class="nav__sub-title" style="font-size: 90%;">📂 Unreal Engine</span>
             <ul>
                 {% for category in site.categories %}
@@ -48,14 +63,6 @@
                 {% for category in site.categories %}
                     {% if category[0] == "UnityLearn" %}
                         <li><a href="/categories/unitylearn" class="">Unity Learn ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        <span class="nav__sub-title" style="font-size: 90%;">📂 BOJ</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "DP" %}
-                        <li><a href="/categories/dp" class="">DP ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
