@@ -76,7 +76,15 @@ whlie(left <= right)		// list의 left와 right 사이에 원소 find 존재
 
 <br>
 
-<img src="https://user-images.githubusercontent.com/93882395/218068738-9e36c4f4-4cae-4bff-8284-bdba5311b7de.png" alt="image" style="zoom:33%;" /> 
+
+
+<img src="https://user-images.githubusercontent.com/93882395/218068738-9e36c4f4-4cae-4bff-8284-bdba5311b7de.png" alt="image" style="zoom: 50%;" /> 
+
+
+
+<br>
+
+
 
 리스트를 나누고 나면, 각 배열은 정렬되어 있으므로 각 배열의 원소 크기들을 비교해가며 새 배열으로 병합한다.
 
