@@ -2,10 +2,11 @@
 title: "분할 정복 알고리즘 정리"
 
 categories:
-  - Algorithm
+  - Note
 
 tags:
   - algorithm
+  - note
 
 toc: true
 toc_sticky: true
