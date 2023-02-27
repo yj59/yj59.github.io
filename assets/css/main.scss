@@ -8,6 +8,13 @@ search: false
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
+// Montserrat
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+// Poppins
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
 //mathjax 폰트 강제성 줌
 .mjx-chtml {
     font-size: 100% !important;
