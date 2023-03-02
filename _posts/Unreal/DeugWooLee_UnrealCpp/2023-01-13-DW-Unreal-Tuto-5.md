@@ -210,7 +210,8 @@ void AABPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAxis(TEXT("LeftRight"), this, &AABPawn::LeftRight);
 }
 
-void AABPawn::UpDown(float NewAxisValue) {
+void AABPawn::UpDown(float NewAxisValue) 
+{
     //입력 값 확인 로그
 	//ABLOG(Warning, TEXT("%f"), NewAxisValue);
     
@@ -218,7 +219,8 @@ void AABPawn::UpDown(float NewAxisValue) {
 	AddMovementInput(GetActorForwardVector(), NewAxisValue);
 }
 
-void AABPawn::LeftRight(float NewAxisValue) {
+void AABPawn::LeftRight(float NewAxisValue) 
+{
 	//ABLOG(Warning, TEXT("%f"), NewAxisValue);
 	AddMovementInput(GetActorRightVector(), NewAxisValue);
 }
@@ -237,7 +239,7 @@ void AABPawn::LeftRight(float NewAxisValue) {
 
 <br>
 
-## **1.2. 플레이어 컨트롤러 인터페이스**
+## **2.2. 플레이어 컨트롤러 인터페이스**
 
 언리얼 에디터에서 플레이 버튼을 누른 후 뷰포트로 포커스를 잡지 않아도 명령어가 전달되도록 플레이어 컨트롤러에 로직을 작성할 수 있다.
 
@@ -285,7 +287,7 @@ void AABPlayerController::BeginPlay()
 
 # **3. 애니메이션 설정**
 
-## 3.1. 애니메이션 애셋 적용
+## **3.1. 애니메이션 애셋 적용**
 
 스켈레탈 메시에 애니메이션을 적용해 폰의 움직임을 자연스럽게 만들 수 있다.
 
@@ -327,7 +329,7 @@ void AABPawn::BeginPlay()
 
 <br>
 
-## 3.2. 블루프린트 활용
+## **3.2. 블루프린트 활용**
 
 애니메이션 블루프린트를 사용해 언리얼에서의 애니메이션을 보다 체계적으로 관리할 수 있다.
 
