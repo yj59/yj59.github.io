@@ -36,7 +36,7 @@ use_math: true
 
 ---
 
-# 1. 캐릭터 모델
+# **1. 캐릭터 모델**
 
 새로 생성한 C++ 클래스 `ABCharactor`는 `ACharacter`를 상속받는다. `ACharacter` 선언을 살펴보면 `ABPawn`과 동일하게 `APawn`을 상속받고 있는 것을 확인할 수 있다.
 
@@ -166,7 +166,7 @@ AABGameMode::AABGameMode()
 
 ---
 
-## 2. 컨트롤 회전
+# **2. 컨트롤 회전**
 
 플레이어 컨트롤러는 플레이어의 의지를 나타내는 `컨트롤 회전`이라는 속성을 제공한다.
 
@@ -227,7 +227,7 @@ void AABCharacter::Turn(float NewAxisValue)
 
 `~` 키를 눌러 콘솔 명령어 입력 창을 띄우고 플레이어 컨트롤러의 `ControlRotation` 속성 값을 확인해보자. `Shift+F1`키로 뷰포트 포커스를 해제할 수 있다.
 
->  콘솔 명령어: `DisplayAll PlayerController ControlRotation`
+*   콘솔 명령어: `DisplayAll PlayerController ControlRotation`
 
 <br>
 
@@ -243,7 +243,7 @@ void AABCharacter::Turn(float NewAxisValue)
 
 ---
 
-# 3. 삼인칭 컨트롤 - GTA
+# **3. 삼인칭 컨트롤 - GTA**
 
 언리얼에서 제공하는 흰색 마네킹과 동일한 기능을 구현할 수 있다.
 
@@ -369,7 +369,7 @@ void AABCharacter::LeftRight(float NewAxisValue)
 
 ---
 
-# 4. 삼인칭 컨트롤 - 디아블로
+# **4. 삼인칭 컨트롤 - 디아블로**
 
 고정된 삼인칭 시점에서 캐릭터를 따라다니는 컨트롤을 구현해보자.
 
@@ -389,7 +389,7 @@ void AABCharacter::LeftRight(float NewAxisValue)
 
 <br>
 
-## 4.1. 컨트롤 설정 변경
+## **4.1. 컨트롤 설정 변경**
 
 ![image](https://user-images.githubusercontent.com/93882395/222707530-65a271e3-7153-4314-8875-bb7d305745dd.png) 
 
@@ -456,7 +456,7 @@ AABCharacter::AABCharacter()
 
 void AABCharacter::SetControlMode(EControlMode NewControlMode)
 {
-    // 새 컨트롤 모드에 맞게 모드 설정값 변경
+	// 새 컨트롤 모드에 맞게 모드 설정값 변경
 	CurrentControlMode = NewControlMode;
 
 	switch (CurrentControlMode)
@@ -619,3 +619,5 @@ void AABCharacter::ViewChange()
 ![녹화_2023_03_03_13_38_07_303_AdobeExpress](https://user-images.githubusercontent.com/93882395/222632931-c3c0cb09-104d-46f8-a9db-80eacbe1f1d5.gif) 
 
 >   결과 화면
+>
+>   `Shift+V`키를 누르면 부드럽게 시점이 변경되는 모습을 확인할 수 있다!
