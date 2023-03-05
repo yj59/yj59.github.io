@@ -293,7 +293,7 @@ void UABAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 	auto Character = Cast<ACharacter>(Pawn);
 	if (Character)
 	{
-        // 폰 무브먼트 컴포넌트의 IsFalling 함수를 호출해 두 값을 일치시킴
+		// 폰 무브먼트 컴포넌트의 IsFalling 함수를 호출해 두 값을 일치시킴
 		IsInAir = Character->GetMovementComponent()->IsFalling();
 	}
 }
