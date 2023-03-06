@@ -14,11 +14,30 @@ search: false
 // Poppins
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-// Noto Sans
+// Noto Sans, sans-serif
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
-// Raleway (bold, italic)
+// Raleway (bold, italic), sans-serif
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,700&display=swap');
+
+
+// Gothic A1, sans-serif
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+
+// 'Spoqa Han Sans Neo', 'sans-serif'
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+// SCDream3, sans-serif
+@font-face {
+    font-family: "SCDream3";
+    src: url("./font/SCDream3.woff") format("woff");
+} 
+
+// SCDream4, sans-serif
+@font-face {
+    font-family: "SCDream4";
+    src: url("./font/SCDream4.woff") format("woff");
+} 
 
 //mathjax 폰트 강제성 줌
 .mjx-chtml {
