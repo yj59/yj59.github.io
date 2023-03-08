@@ -36,7 +36,7 @@ use_math: true
 
 ---
 
-# 1. 액셀 데이터 활용
+# **1. 액셀 데이터 활용**
 
 액셀에 저장된 데이터를 언리얼으로 불어들여보자. 스탯 데이터와 같이 게임의 기반을 이루는 데이터들은 게임이 초기화될 때 불러들이는 것이 일반적이다. 스탯 데이터 등 게임을 관리하기 위해 언리얼에서 제공하는 게임 인스턴스 클래스를 활용한다.
 
@@ -119,9 +119,9 @@ void UABGameInstance::Init()
 
 <br>
 
-# 2. 액터 컴포넌트 제작
+# **2. 액터 컴포넌트 제작**
 
-## 2.1. 액터 컴포넌트 클래스
+## **2.1. 액터 컴포넌트 클래스**
 
 새로운 액터 컴포넌트를 만들어 캐릭터 스탯 관리를 일임하자. 캐릭터에 부착할 수 있도록 클래스가 컴파일되면 `ABCharacter`의 멤버 변수로 선언한다.
 
@@ -255,7 +255,7 @@ void UABCharacterStatComponent::SetNewLevel(int32 NewLevel)
 
 ---
 
-## 2.2. 캐릭터 대미지 적용
+## **2.2. 캐릭터 대미지 적용**
 
 캐릭터가 대미지를 받으면 받은 대미지만큼 `CurrentHP`에서 차감하고 0보다 작으면 죽는 애니메이션을 재생하도록 만들어보자. `TakeDamage` 함수에서 직접 처리하던 대미지 기능을 액터 컴포넌트를 호출해 대신 처리하도록 한다.
 
@@ -388,15 +388,108 @@ void AABCharacter::AttackCheck()
 
 ---
 
-# 3. 캐릭터 위젯 UI 제작
+# **3. 캐릭터 위젯 UI 제작**
+
+## **3.1. 위젯 생성**
+
+위젯 블루프린트를 생성하고 UI 애셋을 제작해보자. `UWidgetComponent` 클래스를 활용해 액터에 위젯을 부착할 수 있다.
+
+단, `UWidgetComponent` 변수를 선언하고 컴파일을 진행하면 에러가 발생한다. 언리얼 에디터가 자동으로 개발 환경을 생성하는데, UI와 관련된 모듈은 지정되어 있지 않기 때문이다. 우리가 사용하는 언리얼 엔진 모듈인 `ArenaBattle.Build.cs `파일에서 위젯 컴포넌트 기능 `UMG`를 추가해주자.
+
+<br>
+
+**위젯 제작 과정**
+
+1.   위젯 블루프린트 추가
+     *   위젯 종류/크기 조절
+2.   `UMG` 모듈 추가
+3.   `UWidgetComponent` 변수 선언
+4.   위젯 컴포넌트 생성 코드 작성
+     *   컴포넌트가 캐릭터 머리 위로 오도록 위치 조정
+     *   애셋의 클래스 정보를 위젯 컴포넌트의 `WidgetClass`로 등록
+     *   UI 위젯을 `Screen` 모드로 지정 (항상 위젯이 스크린 응시)
+     *   크기는 블루프린트 설정과 동일하게 설정
+
+<br>
+
+![image](https://user-images.githubusercontent.com/93882395/223631193-cf95f4cb-948e-4e87-be98-0c416ee172f7.png) 
+
+>   프로그레스바 컨트롤 설정 윈도우
+
+<br>
 
 
 
+**ArenaBattle.Build.cs**
+
+```c#
+public class ArenaBattle : ModuleRules
+{
+	public ArenaBattle(ReadOnlyTargetRules Target) : base(Target)
+	{
+		...
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG" });
+	}
+}
+```
+
+추가된 언리얼 모듈은 언리얼 빌드 툴이 컴파일 설정을 바꾸어준다. 추가된 `UMG` 모듈은 사용자가 헤더 파일을 별도로 설정하지 않고 바로 활용할 수 있도록 기본 경로로 지정된다.
+
+<br>
+
+**ABCharacter.h**
+
+```c++
+UCLASS()
+class ARENABATTLE_API AABCharacter : public ACharacter
+{
+public:
+	UPROPERTY(VisibleAnywhere, Category = UI)
+	class UWidgetComponent* HPBarWidget;
+    ...
+}
+```
+
+<br>
+
+**ABCharacter.cpp**
+
+```c++
+#include "Components/WidgetComponent.h"
+
+AABCharacter::AABCharacter()
+{
+    ...
+        
+    HPBarWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("HPBARWIDGET"));
+    
+    HPBarWidget->SetupAttachment(GetMesh());
+    
+	HPBarWidget->SetRelativeLocation(FVector(0.0f, 0.0f, 180.0f));
+	HPBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
+
+	static ConstructorHelpers::FClassFinder<UUserWidget> UI_HUD(TEXT("Game/Book/UI/UI_HPBar"));
+	if (UI_HUD.Succeeded())
+	{
+		HPBarWidget->SetWidgetClass(UI_HUD.Class);
+		HPBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
+	}
+}    
+```
+
+<br>
+
+![image](https://user-images.githubusercontent.com/93882395/223634967-cec72a24-6842-4100-b515-158ff375485f.png) 
+
+>   결과 화면
+
+<br>
+
+## **3.2. UI와 데이터 연동**
 
 
 
-
-
+<br>
 
 ---
 
