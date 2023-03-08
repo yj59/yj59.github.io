@@ -487,7 +487,172 @@ AABCharacter::AABCharacter()
 
 ## **3.2. UI와 데이터 연동**
 
+캐릭터의 스텟이 변경되면 UI에 전달해 프로그레스바가 변경되는 기능을 구현해보자. 위젯 블루프린트는 `UserWidget` 클래스를 기반으로 사용된다. 
 
+`UserWidget` 클래스를 만들고 `ABCharacterStatComponent`와 연동해 스탯이 변화할 때마다 프로그레스바의 내용을 업데이트할 수 있다. 상호 의존성을 가지지 않도록 델리게이트를 선언하자.
+
+<br>
+
+**ABCharacterStatComponent.h**
+
+```c++
+DECLARE_MULTICAST_DELEGATE(FOnHPChangedDelegate);
+
+UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+class ARENABATTLE_API UABCharacterStatComponent : public UActorComponent
+{
+...
+    
+public:
+    void SetHP(float NewHP);
+    float GetHPRatio();
+    FOnHPChangedDelegate OnHPChanged;
+};
+```
+
+<br>
+
+**ABCharacterStatComponent.cpp**
+
+```c++
+void UABCharacterStatComponent::SetNewLevel(int32 NewLevel)
+{
+	...
+        
+	if (nullptr != CurrentStatData)
+	{
+		Level = NewLevel;
+		CurrentHP = CurrentStatData->MaxHP;
+		SetHP(CurrentStatData->MaxHP);
+	}
+	
+    ...
+}
+void UABCharacterStatComponent::SetDamage(float NewDamage)
+{
+	ABCHECK(nullptr != CurrentStatData);
+	SetHP(FMath::Clamp<float>(CurrentHP - NewDamage, 0.0f, CurrentStatData->MaxHP));
+}
+
+void UABCharacterStatComponent::SetHP(float NewHP)
+{
+	CurrentHP = NewHP;
+	OnHPChanged.Broadcast();
+	if (CurrentHP < KINDA_SMALL_NUMBER)
+	{
+		CurrentHP = 0.0f;
+		OnHPIsZero.Broadcast();
+	}
+}
+
+float UABCharacterStatComponent::GetHPRatio()
+{
+	ABCHECK(nullptr != CurrentStatData, 0.0f);
+
+	return (CurrentStatData->MaxHP < KINDA_SMALL_NUMBER) ? 0.0f : (CurrentHP / CurrentStatData->MaxHP);
+}
+```
+
+<br>
+
+UI를 캐릭터 컴포넌트에 연결에 HP가 변할 때마다 프로그레스바를 업데이트하도록 한다. 
+
+*   약 포인터를 사용해 컴포넌트 참조 (`TWeakObjectPtr`)
+    *   해당 예제는 약 포인터의 사용이 필요하지 않지만, UI와 캐릭터가 서로 다른 액터라면 약 포인터를 사용하는 것이 바람직함
+*   UI 초기화 시점 확인
+    *   `BeginPlay`함수에서 `NativeConstruct` 함수 호출
+        *   `PostInitializeComponents` 함수에서 발생한 명령어 반영 x (이전 호출)
+    *   `NativeConstruct` 함수에서 위젯 내용을 업데이트해야 함
+
+<br>
+
+**ABCharacterWidget.h**
+
+```c++
+#include "ArenaBattle.h"
+
+UCLASS()
+class ARENABATTLE_API UABCharacterWidget : public UUserWidget
+{
+	GENERATED_BODY()
+	
+public:
+	void BindCharacterStat(class UABCharacterStatComponent* NewCharacterStat);
+
+protected:
+	virtual void NativeConstruct() override;
+	void UpdateHPWidget();
+
+private:
+	TWeakObjectPtr<class UABCharacterStatComponent> CurrentCharacterStat;
+
+	UPROPERTY()
+	class UProgressBar* HPProgressBar;
+};
+```
+
+<br>
+
+**ABCharacterWidget.cpp**
+
+```c++
+#include "ABCharacterStatComponent.h"
+#include "Component/ProgressBar.h"
+
+void UABCharacterWidget::BindCharacterStat(UABCharacterStatComponent* NewCharacterStat)
+{
+	ABCHECK(nullptr != NewCharacterStat);
+
+	CurrentCharacterStat = NewCharacterStat;
+	NewCharacterStat->OnHPChanged.AddUObject(this, &UABCharacterWidget::UpdateHPWidget);
+
+}
+
+void UABCharacterWidget::NativeConstruct()
+{
+	Super::NativeConstruct();
+	HPProgressBar = Cast<UProgressBar>(GetWidgetFromName(TEXT("PB_HPBar")));
+	ABCHECK(nullptr != HPProgressBar);
+	UpdateHPWidget();
+}
+
+void UABCharacterWidget::UpdateHPWidget()
+{
+	if (CurrentCharacterStat.IsValid())
+	{
+        ABLOG(Warning, TEXT("HPRatio : %f"), CurrentCharacterStat->GetHPRatio());
+		if (nullptr != HPProgressBar)
+		{
+			HPProgressBar->SetPercent(CurrentCharacterStat->GetHPRatio());
+		}
+	}
+}
+```
+
+<br>
+
+**ABCharacter.cpp**
+
+```c++
+#include "ABCharacterWidget.h"
+
+void AABCharacter::PostInitializeComponents()
+{
+	...
+
+	auto CharacterWidget = Cast<UABCharacterWidget>(HPBarWidget->GetUserWidgetObject());
+	if (nullptr != CharacterWidget)
+	{
+		CharacterWidget->BindCharacterStat(CharacterStat);
+	}
+}
+```
+
+<br>
+
+만들어둔 위젯 블루프린트가 `ABCharacterWidget` 클래스를 상속받도록 설정한다.
+
+*   `그래프` -> `클래스 세팅` -> `부모클래스: ABCharacterWidget`
 
 <br>
 
