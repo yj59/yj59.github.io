@@ -636,7 +636,7 @@ void UABCharacterWidget::UpdateHPWidget()
 ```c++
 #include "ABCharacterWidget.h"
 
-void AABCharacter::PostInitializeComponents()
+void AABCharacter::BeginPlay()
 {
 	...
 
@@ -656,6 +656,12 @@ void AABCharacter::PostInitializeComponents()
 
 <br>
 
+![녹화_2023_03_09_15_02_14_287_AdobeExpress](https://user-images.githubusercontent.com/93882395/223934486-f4aa5bb4-c5c3-4aa9-ac44-44fa491fa37a.gif) 
+
+>   결과 화면
+
+<br>
+
 ---
 
 # *
@@ -664,6 +670,7 @@ void AABCharacter::PostInitializeComponents()
 
 *   게임 인스턴스를 다 만들어두고 프로젝트 설정을 따로 해주지 않아 게임에서 인스턴스 클래스를 읽어들이지 않았다. 코드 작성 전에 바로바로 적용해주자!
 *   캐릭터 스텟 클래스를 액터로 만들고 코드를 작성해 나중에 전부 뜯어내야 했다. 액터와 액터 컴포넌트를 잘 구분하고 생성할 것! 특히 클래스 접두사가 뭔가 이상하다 싶으면 빠르게 재확인하기
+*   UE4.21 이상 버전부터 위젯의 초기화 시점이 `BeginPlay`로 변경되었다. `PostInitializeComponents`에서 위젯을 구현하면 올바르게 동작하지 않는다.
 
 <br>
 
