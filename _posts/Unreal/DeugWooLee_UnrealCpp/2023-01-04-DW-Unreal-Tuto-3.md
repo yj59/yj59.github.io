@@ -64,7 +64,7 @@ use_math: true
 
 *   **형식 문자열**: 로그 매크로에서 형식 문자열 기능 지원 *(`printf`와 유사)*
 
-    *   문자열 정의시 `TEXT` 매크로 사용 권장
+    *   문자열 정의 시 `TEXT` 매크로 사용 권장
     *   문자열 관리 클래스 `FString` 제공
         *   `FString` 타입의 문자열 정보를 가져오려면 `*` 연산자 사용 필요
     
@@ -189,7 +189,7 @@ void AFountain::BeginPlay()
    * 액터를 구성하는 모든 컴포넌트의 세팅 완료
    * 언리얼에서 해당 액터의 `PostInitializeComponents` 함수 호출 
 2. 게임 참여
-   * 첫 게임 참여시 `BeginPlay` 함수 호출
+   * 첫 게임 참여 시 `BeginPlay` 함수 호출
    * 매 프레임마다 `Tick` 함수 호출
 3. 퇴장
    * 메모리에서 소멸
@@ -269,7 +269,7 @@ void AFountain::PostInitializeComponents()
   * 에디터에서 변수에 접근할 수 없기 때문
 * `UPROPERTY` 매크로에 `AllowPrivateAccess` META 키워드 추가
   * 에디터에서 변수 편집 가능, 정보 은닉
-  * 프로그래밍시 캡슐화 가능
+  * 프로그래밍 시 캡슐화 가능
 
 
 

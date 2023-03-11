@@ -250,7 +250,7 @@ void AABAIController::OnPossess(APawn* InPawn)
 }
 ```
 
-`ABAIController` 가동시 비헤이비어 트리 애셋과 같은 폴더에 위치한 블랙보드 애셋, 비헤이비어 트리가 함께 동작한다!
+`ABAIController` 가동 시 비헤이비어 트리 애셋과 같은 폴더에 위치한 블랙보드 애셋, 비헤이비어 트리가 함께 동작한다!
 
 <br>
 

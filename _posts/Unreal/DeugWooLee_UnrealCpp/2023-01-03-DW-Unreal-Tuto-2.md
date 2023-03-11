@@ -113,7 +113,7 @@ public:
 
 *   `VisibleAnywhere`: 속성값 확인 가능
     *   4.27.2 버전에선 키워드를 추가하지 않으면 디테일 윈도우에서 선언한 컴포넌트 자체를 볼 수 없음
-*   `EditAnywhere`: 속성의 데이터 변경시 사용
+*   `EditAnywhere`: 속성의 데이터 변경 시 사용
 
 >   `UPROPERTY` 매크로의 키워드가 `VisibleAnywhere`일 경우, 디테일 윈도우에서 값 유형은 변경할 수 없다. 왜 객체의 속성은 편집할 수 있을까?
 >

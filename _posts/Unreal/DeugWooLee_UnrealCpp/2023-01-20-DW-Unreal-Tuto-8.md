@@ -179,7 +179,7 @@ void AABCharacter::Attack()
 **🪄[델리게이트 (Delegate)](https://docs.unrealengine.com/4.27/ko/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/Delegates/)**<br>
 메서드를 파라미터로서 다른 메서드로 전달해 호출이 가능하게 만들어주는 기능이다(호출자의 인자, 피호출자의 리턴값 등).<br>
 C/C++의 함수 포인터를 개선한 형태로, 한 집단을 대표하는 대리인이 나머지를 호출하는 방식!<br>
-함수 여러 개를 델리게이트가 관리하고, 호출할 함수가 사라져도 안전하게 프로그램이 동작할 수 있다. 단, 활용시 가능한 참조 전달으로 작성하자.
+함수 여러 개를 델리게이트가 관리하고, 호출할 함수가 사라져도 안전하게 프로그램이 동작할 수 있다. 단, 활용 시 가능한 참조 전달으로 작성하자.
 {: .notice--primary}
 
 <br>
@@ -415,11 +415,11 @@ void UABAnimInstance::AnimNotify_AttackHItCheck()
 
      `MaxCombo`, `CurrentCombo`, `CanNextCombo`, `IsComboInputOn`
 
-6.   공격 시작과 종료시 속성을 지정하기 위해 각각 함수 선언
+6.   공격 시작과 종료 시 속성을 지정하기 위해 각각 함수 선언
 
 7.   애님 인스턴스 클래스에서 콤보 카운트마다 몽타주 섹션 재생하도록 구현
 
-     *   `NextAttackCheck` 노티파이 발생시 캐릭터에 전할 델리게이트 선언
+     *   `NextAttackCheck` 노티파이 발생 시 캐릭터에 전할 델리게이트 선언
          *   여러 개의 함수 등록을 위해 멀티캐스트로 선언(`Brocast`)
 
      *   애니메이션 노티파이 함수에서 델리게이트 호출
@@ -525,7 +525,7 @@ void AABCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted
 	AttackEndComboState();
 }
 
-// 6. 공격 시작/종료시 속성 재설정 함수 구현
+// 6. 공격 시작/종료 시 속성 재설정 함수 구현
 void AABCharacter::AttackStartComboState()
 {
 	CanNextCombo = true;

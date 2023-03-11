@@ -105,7 +105,7 @@ void UABGameInstance::Init()
 
 ![image](https://user-images.githubusercontent.com/93882395/223600167-312217a5-445f-4a25-b2ac-e937a3406885.png) 
 
->   csv 임포트시 연동할 데이터 테이블 타입을 선택할 수 있다.
+>   csv 임포트 시 연동할 데이터 테이블 타입을 선택할 수 있다.
 
 <br>
 

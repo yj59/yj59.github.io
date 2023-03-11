@@ -428,7 +428,7 @@ protected:
 	// UPROPERTY를 사용하지 않는 값 타입 변수들은 초기값 미리 지정
 	FVector DirectionToMove = FVector::ZeroVector;
 
-	// ViewChange 키 입력시 시점 부드럽게 전환
+	// ViewChange 키 입력 시 시점 부드럽게 전환
 	// SetControlMode 함수에서 정의 후 Tick 함수의 인자로 쓰임
 	float ArmLengthTo = 0.0f;
 	FRotator ArmRotationTo = FRotator::ZeroRotator;

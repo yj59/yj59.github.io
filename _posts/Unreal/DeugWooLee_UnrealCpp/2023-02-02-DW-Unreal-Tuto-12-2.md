@@ -44,7 +44,7 @@ use_math: true
 
 1.   블랙보드에 `Object`타입 변수 생성(`Target`)
 
-     *   NPC가 플레이어 발견시 플레이어의 정보 저장
+     *   NPC가 플레이어 발견 시 플레이어의 정보 저장
      *   기반 클래스로 `ABCharacter` 지정
 
 2.   셀렉터 컴포짓을 활용해 로직 확장
@@ -71,7 +71,7 @@ use_math: true
 
          (그렇지 않으면 `nullptr`)
 
-     *   플레이어 캐릭터 감지시 녹색 구체와 연결선 그림
+     *   플레이어 캐릭터 감지 시 녹색 구체와 연결선 그림
 
 
 
@@ -342,7 +342,7 @@ bool UBTDecorator_IsInAttackRange::CalculateRawConditionValue(UBehaviorTreeCompo
 3.   `ABController` 클래스의 `Attack` 함수 접근 권한을 `public`으로 변경
      *   AI컨트롤러에서도 공격 명령을 내리기 위함
 4.   공격 종료 알림을 받도록 델리게이트 선언
-     *   공격 종료시 호출할 로직 구현 (캐릭터)
+     *   공격 종료 시 호출할 로직 구현 (캐릭터)
      *   태스크에서 람다 함수를 델리게이트에 등록
      *   `Tick` 함수 로직에서 델리게이트 반환값을 받으면 `FinishiLatentTask` 함수를 호출하고 태스크 종료
 5.   비헤이비어 트리에 `Attack` 태스크 삽입
@@ -450,7 +450,7 @@ void AABCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted
 
 <br>
 
-## **4.2.2. BTTask_TurnToTarget**
+### **4.2.2. BTTask_TurnToTarget**
 
 조금 더 자연스러운 동작을 위해 NPC가 공격과 동시에 플레이어를 향해 회전하는 기능을 추가한다.
 

@@ -67,7 +67,7 @@ use_math: true
 *   `WorldStatic` : 정적 배경 액터에 사용 (스태틱메시 컴포넌트)
 *   `WorldDynamic` : 움직이는 액터에 사용 (스태틱메시 컴포넌트)
 *   `Pawn` : 플레이어가 조종하는 물체에 주로 사용 (캡슐 컴포넌트<-*캐릭터 충돌*)
-*   `Visibility` : 피킹 기능 구현시 사용
+*   `Visibility` : 피킹 기능 구현 시 사용
     *   배경 물체의 가시성 탐지
 *   `Camera` : 카메라와 목표물 간 장애물이 있는지 탐지
 *   `PisicsBody` : 물리 시뮬레이션으로 움직이는 컴포넌트에 설정
@@ -337,7 +337,7 @@ void AABCharacter::AttackCheck()
 
 >   결과 화면
 >
->   타격시 공격 판정 로그 출력
+>   타격 시 공격 판정 로그 출력
 
 <br>
 
@@ -479,7 +479,7 @@ void AABCharacter::AttackCheck()
 4.   애님 인스턴스에 캐릭터 사망 여부 확인
 5.   애님 그래프에서 `IsDead`가 참이 되면 죽는 애니메이션 동작을 재생하도록 노드 연결
      *   애니메이션을 반복하지 않도록 `Loop` 해제
-6.   캐릭터에 사망시 액터의 충돌 설정을 해제하도록 로직 작성
+6.   캐릭터에 사망 시 액터의 충돌 설정을 해제하도록 로직 작성
 
 <br>
 
@@ -506,7 +506,7 @@ float AABCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 	ABLOG(Warning, TEXT("Actor : %s took Damage : %f"), *GetName(), FinalDamage);
     
-    // 사망시 충돌 해제
+    // 사망 시 충돌 해제
     if (FinalDamage > 0.0f)
 	{
 		ABAnim->SetDeadAnim();

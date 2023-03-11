@@ -487,7 +487,7 @@ void AABItemBox::OnCharacterOverlap(UPrimitiveComponent* OverlappedComp, AActor*
             ABCharacter->SetWeapon(NEwWeapon);
 
             // 이펙트 도중 충돌제거/박스 스태틱메시 숨김
-            // 이펙트 재생 종료시 아이템 제거 함수 호출
+            // 이펙트 재생 종료 시 아이템 제거 함수 호출
             Effect->Activate(true);
             Box->SetHiddenInGame(true, true);
             SetActorEnableCollision(false);
@@ -508,7 +508,7 @@ void AABItemBox::OnEffectFinished(UParticleSystemComponent* PSystem)
 
 <br>
 
-부모 클래스를 `ABWeapon`으로 하는 새 블루프린트 클래스를 생성한다. 부모 클래스 선택시 모든 클래스 탭을 눌러 사용자 지정 클래스를 선택할 수 있다.
+부모 클래스를 `ABWeapon`으로 하는 새 블루프린트 클래스를 생성한다. 부모 클래스 선택 시 모든 클래스 탭을 눌러 사용자 지정 클래스를 선택할 수 있다.
 
 `ABWeapon`이 부모 클래스이므로 사전에 지정해두었던 무기가 기본 블루프린트 형식으로 출력된다. 블루프린트를 열고 스켈레탈 메시에서 도끼로 무기를 변경해보자.
 
