@@ -378,7 +378,7 @@ void AABCharacter::AttackCheck()
 
 ![image](https://user-images.githubusercontent.com/93882395/223621570-995df59f-366f-4515-8afd-39c1b0f5b04f.png) 
 
-![image-20230308134358101](C:\Users\yjoso\AppData\Roaming\Typora\typora-user-images\image-20230308134358101.png) 
+![image](https://user-images.githubusercontent.com/93882395/223954935-b3ae3d9b-0cb0-433b-bb24-4cf54c319755.png)  
 
 >   결과 화면
 >
