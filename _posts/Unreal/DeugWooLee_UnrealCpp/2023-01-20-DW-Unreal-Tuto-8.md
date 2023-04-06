@@ -343,7 +343,7 @@ void UABAnimInstance::PlayAttackMontage()
 
 ## **3.1. 노티파이 추가**
 
-애니메이션 노티파이 애니메이션의 특정 재생 타이밍에 애님 인스턴스로 신호를 보내는 기능이다.
+[애니메이션 노티파이](https://docs.unrealengine.com/4.27/ko/AnimatingObjects/SkeletalMeshAnimation/Sequences/Notifies/) 애니메이션의 특정 재생 타이밍에 애님 인스턴스로 신호를 보내는 기능이다.
 
 <br>
 
