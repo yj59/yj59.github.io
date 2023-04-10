@@ -38,7 +38,7 @@ use_math: true
 
 <br>
 
-# 3. 피봇 설정
+# **3. 피봇 설정**
 
 <img src="https://user-images.githubusercontent.com/93882395/230892968-f7f95500-0ea3-4926-8037-23f40b07e474.png" alt="image" style="zoom:67%;" /> 
 
