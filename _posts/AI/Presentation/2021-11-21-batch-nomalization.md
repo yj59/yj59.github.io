@@ -70,9 +70,7 @@ use_math: true
 
 <br>
 
->Using mini-batches of examples, as opposed to one exam- ple at a time, is helpful in several ways. First, the gradient of the loss over a mini-batch is an estimate of the gradient over the training set, whose quality improves as the batch size increases. Second, computation over a batch can be much more efﬁcient than m computations for individual examples, due to the parallelism afforded by the modern computing platforms.
->While stochastic gradient is simple and effective, it requires careful tuning of the model hyper-parameters, speciﬁcally the learning rate used in optimization, as well as the initial values for the model parameters. The train- ing is complicated by the fact that the inputs to each layer are affected by the parameters of all preceding layers – so that small changes to the network parameters amplify as the network becomes deeper.
-
+<img src="https://user-images.githubusercontent.com/93882395/235608614-43f8b0fd-7513-4741-a4de-ad30986d9358.png" alt="image" style="zoom:67%;" />
 
 
 mini-batch를 사용한 SGD의 장점
