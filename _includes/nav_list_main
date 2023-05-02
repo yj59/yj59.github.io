@@ -58,6 +58,15 @@
                 {% endfor %}
             </ul> 
 
+        <span class="nav__sub-title" style="font-size: 90%;">📂 AI</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Presentation" %}
+                        <li><a href="/categories/presentation" class="">세미나 발표 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul> 
+
         <span class="nav__sub-title" style="font-size: 90%;">📂 Unity</span>
             <ul>
                 {% for category in site.categories %}
@@ -74,12 +83,24 @@
                 <!--Cpp 카테고리 글들을 모아둔 페이지인 /categories/cpp 주소의 글로 링크 연결-->
                 <!--category[1].size 로 해당 카테고리를 가진 글의 개수 표시--> 
                 {% for category in site.categories %}
+                    {% if category[0] == "Effective C++" %}
+                        <li><a href="/categories/effectivecpp" class="">Effective C++ ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% for category in site.categories %}
                     {% if category[0] == "CppRef" %}
                         <li><a href="/categories/ref" class="">Reference ({{category[1].size}})</a></li>
                     {% endif %}
+                {% endfor %}
+
+                {% for category in site.categories %}
                     {% if category[0] == "CppSTL" %}
                         <li><a href="/categories/cppstl" class="">STL ({{category[1].size}})</a></li>
                     {% endif %}
+                {% endfor %}
+
+                {% for category in site.categories %}
                     {% if category[0] == "CppSTLPlus" %}
                         <li><a href="/categories/cppstlplus" class="">STL 한 걸음 더({{category[1].size}})</a></li>
                     {% endif %}
