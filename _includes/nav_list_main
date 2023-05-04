@@ -43,8 +43,13 @@
                     {% endif %}
                 {% endfor %}
                 {% for category in site.categories %}
-                    {% if category[0] == "Unreal Tutorials" %}
-                        <li><a href="/categories/unrealtuto" class="">Unreal Tutorials ({{category[1].size}})</a></li>
+                    {% if category[0] == "Unreal Memo" %}
+                        <li><a href="/categories/unrealprojects" class="">Projects ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% for category in site.categories %}
+                    {% if category[0] == "Loglike Projects" %}
+                        <li><a href="/categories/unrealloglike" class="">Loglike Projects ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>  
