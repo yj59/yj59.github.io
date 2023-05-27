@@ -129,6 +129,14 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+        <span class="nav__sub-title" style="font-size: 90%;">📂 Etc</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "ShortSighted" %}
+                        <li><a href="/categories/shortsighted" class="">Short Sighted ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
       </li>
 
   </ul>
