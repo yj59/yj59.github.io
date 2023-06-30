@@ -114,6 +114,10 @@
                         <li><a href="/categories/ds" class="">Data Structure ({{category[1].size}})</a></li>
                     {% endif %}
 
+                    {% if category[0] == "Data Base" %}
+                        <li><a href="/categories/db" class="">Data Base ({{category[1].size}})</a></li>
+                    {% endif %}
+
                     {% if category[0] == "Compiler" %}
                         <li><a href="/categories/compiler" class="">Compiler ({{category[1].size}})</a></li>
                     {% endif %}
