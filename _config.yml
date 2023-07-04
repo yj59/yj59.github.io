@@ -104,7 +104,7 @@ analytics:
 # Site Author
 author:
   name             : "Yejin"
-  avatar           : "/assets/img/dcdpdrp-47f21ded-0999-4b65-aeeb-d380ce73c641.gif" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/img/avatar2.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "지금 할 수 있는 일을 하자.<br>내 갈 길 가기🪄 아쟈"
   location         : "Rep. of Korea"
   email            : "yj.osoq@gmail.com"
