@@ -56,6 +56,12 @@
                         <li><a href="/categories/dp" class="">DP ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
+
+                {% for category in site.categories %}   
+                    {% if category[0] == "ShortestPath" %}
+                        <li><a href="/categories/shortestpath" class="">Shortest Path ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
             </ul>
 
         <!--span 태그로 카테고리들을 크게 분류 ex) C/C++/C#-->
