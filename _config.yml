@@ -15,7 +15,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Keep Calm and Carry On🕊️"
+title                    : "하루 공부 기록"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Yejin"
@@ -85,7 +85,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image: "/assets/img/avatar2.png" # Open Graph/Twitter default site image
+og_image: "/assets/img/profile-1.png" # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -104,8 +104,8 @@ analytics:
 # Site Author
 author:
   name             : "Yejin"
-  avatar           : "/assets/img/avatar2.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "지금 할 수 있는 일을 하자.<br>내 갈 길 가기🪄 아쟈"
+  avatar           : "/assets/img/profile-1.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "아자아자 파이팅!!!"
   location         : "Rep. of Korea"
   email            : "yj.osoq@gmail.com"
   links:
@@ -297,7 +297,7 @@ defaults:
       mathjax: true
       sidebar_main: true
 
-  # _pages      #커스텀한 메뉴
+  # _pages      #커스????�� 메뉴
   - scope:
       path: "_pages"
       type: pages
