@@ -16,13 +16,8 @@
         <span class="nav__sub-title" style="font-size: 90%;">📂 Unreal Engine</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Unreal Memo" %}
-                        <li><a href="/categories/unrealmemo" class="">Memo ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-                {% for category in site.categories %}
-                    {% if category[0] == "My Bohemian Life" %}
-                        <li><a href="/categories/mybohemianlife" class="">My Bohemian Life ({{category[1].size}})</a></li>
+                    {% if category[0] == "Udemy" %}
+                        <li><a href="/categories/udemy" class="">Udemy ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
                 {% for category in site.categories %}
@@ -33,6 +28,11 @@
                 {% for category in site.categories %}
                     {% if category[0] == "Unreal Tutorials" %}
                         <li><a href="/categories/unrealtuto" class="">Unreal Tutorials ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% for category in site.categories %}
+                    {% if category[0] == "Unreal Memo" %}
+                        <li><a href="/categories/unrealmemo" class="">Memo ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>  
