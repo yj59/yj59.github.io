@@ -20,16 +20,19 @@
                         <li><a href="/categories/udemy" class="">Udemy ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
+
                 {% for category in site.categories %}
                     {% if category[0] == "Capstone Projects" %}
                         <li><a href="/categories/unrealcapstone" class="">Capstone Projects ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
+
                 {% for category in site.categories %}
                     {% if category[0] == "Unreal Tutorials" %}
                         <li><a href="/categories/unrealtuto" class="">Unreal Tutorials ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
+                
                 {% for category in site.categories %}
                     {% if category[0] == "Unreal Memo" %}
                         <li><a href="/categories/unrealmemo" class="">Memo ({{category[1].size}})</a></li>
