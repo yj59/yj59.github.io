@@ -1,3 +1,0 @@
- User-agent: *
- Allow: /
- Sitemap: https://yj59.github.io/sitemap.xml
