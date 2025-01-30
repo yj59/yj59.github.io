@@ -5,6 +5,7 @@
 
 .highlighter-rouge {
   color: var(--highlighter-rouge-color);
+  font-family: v.$font-family-code;
   margin-top: 0.5rem;
   margin-bottom: 1.2em; /* Override BS Inline-code style */
 }
@@ -22,6 +23,7 @@
 
   pre {
     margin-bottom: 0;
+    font-family: v.$font-family-code;
     font-size: v.$code-font-size;
     line-height: 1.4rem;
     word-wrap: normal; /* Fixed Safari overflow-x */
